@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LTCE Student Voting</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">LTCE</div>
+    <div>
+      <h1>Lokmanya Tilak College of Engineering</h1>
+      <p>Student Council Election</p>
+    </div>
+  </header>
+
+  <main>
+    <nav>
+      <button class="tab active" data-view="voteView">Voting</button>
+      <button class="tab" data-view="analysisView">Analysis</button>
+    </nav>
+
+    <section id="voteView" class="view active">
+      <h2>Voting for</h2>
+      <p class="intro">Verify your student ID, then choose one candidate for each position.</p>
+
+      <div class="verify">
+        <label for="studentId">Student ID</label>
+        <div class="verify-row">
+          <input id="studentId" placeholder="Example: LTCE010" autocomplete="off">
+          <button id="verifyBtn" class="secondary">Verify</button>
+        </div>
+        <p id="message">Demo IDs: LTCE001 to LTCE025</p>
+        <p id="verified" class="verified hidden"></p>
+      </div>
+
+      <form id="ballot" class="hidden">
+        <div class="position">
+          <h3>President</h3>
+          <div id="president" class="choices"></div>
+        </div>
+        <div class="position">
+          <h3>Vice President</h3>
+          <div id="vicePresident" class="choices"></div>
+        </div>
+        <div class="position">
+          <h3>Secretary</h3>
+          <div id="secretary" class="choices"></div>
+        </div>
+        <button class="submit" type="submit">Submit Vote</button>
+      </form>
+
+      <div id="done" class="done hidden">
+        <h3>Vote submitted!</h3>
+        <p>Your demo vote has been saved in this browser.</p>
+        <button id="showAnalysis" class="secondary">View Analysis</button>
+      </div>
+    </section>
+
+    <section id="analysisView" class="view">
+      <h2>Voting Analysis</h2>
+      <p class="intro">Vote counts and percentages update after each submitted ballot.</p>
+      <div class="stats">
+        <div><span>Registered students</span><strong>25</strong></div>
+        <div><span>Votes submitted</span><strong id="totalVotes">0</strong></div>
+        <div><span>Yet to vote</span><strong id="remaining">25</strong></div>
+      </div>
+      <div id="results"></div>
+      <div class="reset-row">
+        <p>Reset the demo to start again.</p>
+        <button id="reset" class="reset">Reset Demo</button>
+         </section>
+    <footer>Mini Project - Voting System</footer>
+  </main>
+
+  <dialog id="confirmDialog">
+    <h3>Confirm your vote</h3>
+    <p id="review"></p>
+    <div class="dialog-actions">
+      <button id="back" class="secondary">Go Back</button>
+      <button id="confirm" class="submit">Confirm Vote</button>
+    </div>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>
